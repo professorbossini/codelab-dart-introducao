@@ -1,0 +1,953 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Dart - Introdução</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="codelab-dart-introducao"
+                  title="Dart - Introdução"
+                  environment="web"
+                  feedback-link="https://github.com/professorbossini/codelab-dart-introducao/issues">
+    
+      <google-codelab-step label="Introdução" duration="0">
+        <p class="image-container"><img style="width: 119.00px" src="img\\6ed895f67eeaad41.png"></p>
+<p><strong>Última atualização:</strong> 27/07/2023</p>
+<p>Flutter é uma linguagem de programação criada pelo Google em 2011. A sua versão 1.0 foi liberada em 2013. Vejamos algumas de suas principais características.</p>
+<aside class="special"><p>Código Dart pode ser compilado para</p>
+<p>- código de máquina (Linux, MacOS, Windows).</p>
+<p>- Web (Javascript e WebAssembly (baixo nível como assembly, desempenho quase nativo, integrável com Javascript)).</p>
+<p>- Mobile (Android e iOS).</p>
+</aside>
+<aside class="special"><p>Compilação <strong>Just in time:</strong></p>
+<p>- Código compilado apenas no momento em que for executado.</p>
+<p>- Compilação sob demanda (somente arquivos acessados são compilados).</p>
+<p>- Desenvolvedor não precisa esperar  que a aplicação seja compilada por completo para testá-la.</p>
+<p>- A cada nova alteração de código, não há a necessidade de recompilar a aplicação.</p>
+<p>- Viabiliza o hot reload.</p>
+<p>- Se fossemos fazer o deploy da aplicação, seria necessário incluir o código fonte original e o compilador (que, por si só, pode ser maior que a aplicação).</p>
+<p>- Próprio para desenvolvimento e testes.</p>
+</aside>
+<aside class="special"><p>Compilação <strong>Ahead of time</strong>:</p>
+<p>- Aplicação compilada por completo, antes de ser colocada em execução.</p>
+<p>- Código fonte original e compilador não são incluídos no produto final. </p>
+<p>- Aplicação mais &#34;leve&#34; (menos bytes).</p>
+<p>- Próprio para deploy em produção.</p>
+</aside>
+<aside class="special"><p>Suporte aos seguintes paradigmas: Orientação a Objetos, Funcional, Imperativo e Reflexivo (inspeção da estrutura do programa em tempo de execução)</p>
+</aside>
+<aside class="special"><p>Seu sistema de tipos é <strong>gradual</strong>. Uma espécie de mistura de tipagem estática e dinâmica que veremos em breve.  Também inclui <strong>inferência de tipos</strong>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Documentação oficial" duration="1">
+        <p>A documentação oficial de Dart, semelhante ao Javadoc do Java, pode ser encontrada em </p>
+<p><a href="https://api.dart.dev/stable" target="_blank">https://api.dart.dev/stable</a></p>
+<p>As principais classes, como String, int, bool etc se encontram no pacote dart:core. Veja.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\2b15bb6f11180fe.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="DartPad - Editor on-line" duration="1">
+        <p>O ambiente Dart inclui o DartPad, um editor on-line que viabiliza a execução de testes rápidos, particularmente útil para quem está começando. Ele pode ser visitado em</p>
+<p><a href="https://dartpad.dartlang.org/" target="_blank">https://dartpad.dartlang.org/</a></p>
+<p>Ao visitar o DartPad, você verá <strong>três regiões principais</strong> e <strong>um botão para execução do código</strong>.</p>
+<p>- <strong>A região principal</strong> em que escrevemos código.</p>
+<p>- O <strong>Console</strong>. Ele exibe o resultado do programa após clicarmos no botão para execução.</p>
+<p>- <strong>Documentation</strong>. Exibe a documentação do item sobre o qual clicarmos.</p>
+<p>O exemplo a seguir mostra um trecho de código que veio pré-definido no momento em que abrimos o DartPad. Nele, já clicamos no botão para execução e, a seguir, clicamos sobre a função print, a função de exibir a sua documentação.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\9c9590760e7ad8d4.png"></p>
+<p>Para começarmos nossos testes, apague todo o código pré definido. Observe que <strong>não é possível executar um programa que não possua uma função principal</strong>.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\22bb0d09321e7675.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Hello, World com Dart" duration="1">
+        <p>Para escrever um programa Hello, World com Dart, o primeiro passo é definir uma função principal. Veja.</p>
+<pre><code>void main() {
+  
+}</code></pre>
+<p>A função print é responsável por exibir conteúdo no console. Strings são delimitadas por aspas simples ou duplas. Não se esqueça de incluir o ponto-e-vírgula no final.</p>
+<pre><code>void main() {
+  print (&#39;Hello, World&#39;);
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Comentários em Dart." duration="1">
+        <p>Há dois tipos de comentários em Dart. Aqueles de uma única linha e aqueles de múltiplas linhas. Veja.</p>
+<pre><code>void main(){
+  
+  //sou um comentário de uma única linha
+  
+  /*
+   * Sou um
+   * comentário
+   * de múltiplas linhas
+   * */
+}</code></pre>
+<p>Há também os <strong>comentários utilizados para gerar documentação</strong>. Se precisar de uma única linha, use barras triplas ( / / /). Se precisar de múltiplas linhas, use / ** para começar e */ para terminar. Lembre-se de clicar no nome da função main para ver a documentação no DartPad. Veja um exemplo de comentário de documentação de única linha.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\9bf0d6e4065388dc.png"></p>
+<p>Agora um exemplo de comentário de documentação de múltiplas linhas.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\d3fbbf2801776b3b.png"></p>
+<p>Se desejarmos, podemos fazer referência a um elemento de código (como um método, classe etc) colocando seu nome dentro de colchetes. Veja a diferença.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\7094c3e2d8c7c7f9.png"></p>
+<p>No DartPad, o nome do elemento fica destacado com outra cor. Se eventualmente gerarmos essa documentação para publicação, ele se torna um link para o elemento, viabilizando a navegação entre elementos, assim como acontece na documentação oficial de Dart.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Tipos de dados, variáveis e inicialização." duration="3">
+        <p>Os tipos de dados em Dart são os seguintes.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Tipo</p>
+</td><td colspan="1" rowspan="1"><p>Observação</p>
+</td><td colspan="1" rowspan="1"><p>Exemplo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>int</p>
+</td><td colspan="1" rowspan="1"><p>Números inteiros (64 bits).</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>double</p>
+</td><td colspan="1" rowspan="1"><p>Números reais (64 bits)</p>
+</td><td colspan="1" rowspan="1"><p>double d = 2.5;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>num</p>
+</td><td colspan="1" rowspan="1"><p>Tipo numérico genérico. Admite a atribuição de int ou double.</p>
+</td><td colspan="1" rowspan="1"><p>num n1 = 2;</p>
+<p>num n2 = 2.5;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>String</p>
+</td><td colspan="1" rowspan="1"><p>Uma sequência de zero ou mais caracteres representados em UTF-16. Pode ser delimitada por aspas <strong>simples</strong> ou <strong>duplas</strong>. Podemos criar strings de múltiplas linhas usando aspas simples ou duplas &#34;triplas&#34;.</p>
+<p>Podemos criar strings &#34;raw&#34; precedendo o seu valor com a letra r. Assim, caracteres de escape são ignorados.</p>
+</td><td colspan="1" rowspan="1"><p>String s1 = ‘abc&#39;;</p>
+<p>String s2 = &#34;abc&#34;;</p>
+<p>String s3 = ‘&#39;&#39;uma string</p>
+<p>de múltiplas linhas com aspas simples&#39;&#39;&#39;;</p>
+<p>String s4 = &#34;&#34;&#34; uma string de múltiplas linhas com aspas duplas&#34;&#34;&#34;;</p>
+<p>String s5 = r&#39;O \n serve para pular uma linha&#39;;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>bool</p>
+</td><td colspan="1" rowspan="1"><p>Valores booleanos</p>
+</td><td colspan="1" rowspan="1"><p>bool deMaior = false;</p>
+<p>bool alto = true;</p>
+</td></tr>
+</table>
+<aside class="special"><p><strong>Nota</strong>. Há outros tipos em Dart, como Records, Lists, Sets, Maps, Runes e Symbols, os quais estudaremos em outro momento. Veja mais em <a href="https://dart.dev/language/built-in-types" target="_blank">https://dart.dev/language/built-in-types</a>.</p>
+</aside>
+<p>Os identificadores (nomes de variáveis, métodos, classes etc) devem estar de acordo com as seguintes regras.</p>
+<p>- Podem incluir letras maiúsculas.</p>
+<p>- Podem incluir letras minúsculas.</p>
+<p>- Podem incluir dígitos.</p>
+<p>- Podem incluir o símbolo underscore (_).</p>
+<p>- Podem incluir o símbolo $.</p>
+<p>- Não podem começar com dígito.</p>
+<aside class="special"><p><strong>Nota</strong>. É comum utilizar a notação <strong>camel case</strong> em programas Dart.</p>
+</aside>
+<p>Veja um programa que faz uso de alguns dos tipos mencionados.</p>
+<pre><code>void main(){
+  String nome = &#34;João&#34;;
+  String sobrenome = &#39;Silva&#39;;
+  String endereco = &#39;&#39;&#39;Rua B,
+número 1234, Vila J&#39;&#39;&#39;;
+  bool deMaior = false;
+  int idade = 17;
+  num peso = 80.5;
+  double altura = 1.82;
+  
+  String comoPularLinha = r&#34;Pule uma linha com \n&#34;;
+  
+  print (nome);
+  print(sobrenome);
+  print(endereco);
+  print(deMaior);
+  print(idade);
+  print(peso);
+  print(altura);
+  print(comoPularLinha);
+}</code></pre>
+<p>Se desejar, você pode exibir o tipo de uma variável com <strong>runtimeType</strong>. Veja alguns exemplos.</p>
+<pre><code>void main(){
+  int a = 2;
+  double b = 3.5;
+  String c = &#34;abc&#34;;
+  bool d = true;
+  num e = 2;
+  num f = 2.2;
+  
+  print (a.runtimeType);
+  print (b.runtimeType);
+  print (c.runtimeType);
+  print (d.runtimeType);
+  print (e.runtimeType);
+  print (f.runtimeType);
+  
+  //também dá para exibir o tipo de literais
+  print(2.runtimeType);
+  print(true.runtimeType);
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Concatenação e interpolação de Strings" duration="3">
+        <p>Em Dart, concatenamos Strings utilizando o operador <strong>+</strong>.  Veja.</p>
+<pre><code>void main(){
+  String nome = &#34;João&#34;;
+  String sobrenome = &#39;Silva&#39;;
+  String endereco = &#39;&#39;&#39;Rua B,
+número 1234, Vila J&#39;&#39;&#39;;
+  bool deMaior = false;
+  int idade = 17;
+  num peso = 80.5;
+  double altura = 1.82;
+  
+  
+  print (&#39;Me chamo &#39; + nome);
+}</code></pre>
+<p>Observe que variáveis de tipos diferentes não podem ser concatenadas com <strong>+</strong>.</p>
+<pre><code>void main(){
+  String nome = &#34;João&#34;;
+  String sobrenome = &#39;Silva&#39;;
+  String endereco = &#39;&#39;&#39;Rua B,
+número 1234, Vila J&#39;&#39;&#39;;
+  bool deMaior = false;
+  int idade = 17;
+  num peso = 80.5;
+  double altura = 1.82;
+  
+  //erro, concatenando string com int, não pode
+  //print (&#39;Minha idade é &#39; + idade);
+  //mas podemos concatenar string com string, convertendo antes
+  print (&#39;Minha idade é &#39; + idade.toString());
+}</code></pre>
+<p>O efeito da concatenação pode ser obtido utilizando-se a <strong>interpolação.</strong> Em geral, o código fica mais fácil de entender, além de permitir o uso de variáveis de outros tipos além de Strings.</p>
+<pre><code>void main(){
+  String nome = &#34;João&#34;;
+  String sobrenome = &#39;Silva&#39;;
+  String endereco = &#39;&#39;&#39;Rua B,
+número 1234, Vila J&#39;&#39;&#39;;
+  bool deMaior = false;
+  int idade = 17;
+  num peso = 80.5;
+  double altura = 1.82;
+  
+  
+  print (&#39;Me chamo $nome&#39;);
+  
+  print (&#34;Tenho $idade anos e $peso kg&#34;);
+}</code></pre>
+<p>Observe que há um espaço em branco entre o peso e a sigla <strong>kg</strong>. Talvez queiramos deixar de exibi-lo. Também é possível que desejemos avaliar uma expressão como uma soma de dois valores. Para tal, podemos usar <strong>${expressao}. </strong>Veja.</p>
+<pre><code>void main(){
+  String nome = &#34;João&#34;;
+  String sobrenome = &#39;Silva&#39;;
+  String endereco = &#39;&#39;&#39;Rua B,
+número 1234, Vila J&#39;&#39;&#39;;
+  bool deMaior = false;
+  int idade = 17;
+  num peso = 80.5;
+  double altura = 1.82;
+  
+  
+  print (&#39;Me chamo $nome&#39;);
+  
+  print (&#34;Tenho $idade anos e ${peso}kg&#34;);
+  print (&#39;Ano que vem terei ${idade + 1} anos.&#39;);
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Métodos da classe String" duration="3">
+        <p>Em seu ambiente de desenvolvimento (DartPad, no nosso caso, até então), use o operador . sobre o nome de uma variável para descobrir o nome de métodos que você pode chamar sobre ele. Veja.</p>
+<p class="image-container"><img style="width: 624.00px" src="img\\c75cdfc9427d74b5.png"></p>
+<p>Veja como podemos converter strings para letras minúsculas e maiúsculas, por exemplo.</p>
+<pre><code>void main(){
+  String nome = &#39;Ana Silva&#39;;
+  
+  print(nome.toUpperCase());
+  
+  print(nome.toLowerCase());   
+}</code></pre>
+<p>Observe que <strong>Strings são imutáveis</strong>. O conteúdo original da variável nome permanece inalterado.</p>
+<pre><code>void main(){
+  String nome = &#39;Ana Silva&#39;;
+  
+  print(nome.toUpperCase());
+  
+  print(nome.toLowerCase()); 
+  
+  //não foi alterado
+  print(nome);
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conversão entre tipos" duration="2">
+        <p>Podemos utilizar os métodos <strong>parse</strong> e <strong>toString</strong> para converter de String para número e de número para String, respectivamente. Veja.</p>
+<pre><code>void main(){
+  //de string para int
+  String idadeTextual = &#34;25&#34;;
+  int idade = int.parse(idadeTextual);
+  print(idade);
+  
+  //de string para double
+  String pesoTextual = &#39;85.2&#39;;
+  double peso = double.parse(pesoTextual);
+  print(peso);
+  
+  
+  //de string para num
+  String alturaTextual = &#39;1.8&#39;;
+  num altura = num.parse(alturaTextual);
+  print(altura);
+  
+  
+  String logradouro = &#34;Rua B&#34;;
+  int numero = 325;
+  
+  //não podemos concatenar string com int, lembra?
+  //print(logradouro + &#39;, número: &#39; + numero);
+  
+  //mas podemos converter para String antes
+  print(logradouro + &#39;, número: &#39; + numero.toString());
+}
+</code></pre>
+<p>Curiosamente, não podemos atribuir uma variável int a uma variável double, embora possamos atribuir um valor inteiro literal a um double. Observe.</p>
+<pre><code>void main(){
+  
+  //aqui tudo bem, 2 é um literal inteiro
+  double d1 = 2;
+  
+  int i1 = 2;
+  //isso não rola, curiosamente
+  //double d2 = i1;
+  //podemos resolver assim
+  double d2 = i1.toDouble();
+  print(d2);
+}</code></pre>
+<p>Não há coerção de tipo em Dart. Veja.</p>
+<pre><code>void main(){  
+  double a = 1.2;
+  
+  //erro
+  //int b = (int) a;
+  
+  //mas podemos usar métodos
+  //arredonda
+  int b = a.round();
+  print(b);
+  //teto
+  b = a.ceil();
+  print(b);
+  //chão
+  b = a.floor();
+  print(b);
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Operadores aritméticos" duration="2">
+        <p>Vejamos os <strong>operadores aritméticos</strong> da linguagem Dart.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Operador</p>
+</td><td colspan="1" rowspan="1"><p>Observação</p>
+</td><td colspan="1" rowspan="1"><p>Exemplo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>+</p>
+</td><td colspan="1" rowspan="1"><p>soma (ou concatenação de strings)</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5 + 2;</p>
+<p>String s = &#34;a&#34; + &#34;bc&#34;;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>*</p>
+</td><td colspan="1" rowspan="1"><p>multiplicação</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5 * 2;</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>/</p>
+</td><td colspan="1" rowspan="1"><p>divisão real</p>
+</td><td colspan="1" rowspan="1"><p>double a = 5 / 2;</p>
+<p>//int a = 5 / 2; é um erro</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>~/</p>
+</td><td colspan="1" rowspan="1"><p>divisão inteira</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5 ~/ 2;</p>
+<p>//double a = 5 ~/ 2; é um erro</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>%</p>
+</td><td colspan="1" rowspan="1"><p>resto de divisão inteira</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5 % 2; //dá 1</p>
+</td></tr>
+</table>
+<p>Dart possui os seguintes <strong>operadores aritméticos compostos</strong>.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Operador</p>
+</td><td colspan="1" rowspan="1"><p>Observação</p>
+</td><td colspan="1" rowspan="1"><p>Exemplo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>+=</p>
+</td><td colspan="1" rowspan="1"><p>soma e atribuição</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>a += 2; //4</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>*=</p>
+</td><td colspan="1" rowspan="1"><p>multiplicação e atribuição</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>a *= 2; //4</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>/=</p>
+</td><td colspan="1" rowspan="1"><p>divisão real e atribuição</p>
+</td><td colspan="1" rowspan="1"><p>double a = 5;</p>
+<p>a /= 2; //2.5</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>~/=</p>
+</td><td colspan="1" rowspan="1"><p>divisão inteira e atribuição</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5;</p>
+<p>a ~/= 2; // 2</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>%=</p>
+</td><td colspan="1" rowspan="1"><p>resto de divisão inteira e atribuição</p>
+</td><td colspan="1" rowspan="1"><p>int a = 5;</p>
+<p>a %= 2; // 1</p>
+</td></tr>
+</table>
+<p>Assim como em outras linguagens, também temos os <strong>operadores de incremento e decremento</strong>.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Operador</p>
+</td><td colspan="1" rowspan="1"><p>Observação</p>
+</td><td colspan="1" rowspan="1"><p>Exemplo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>++</p>
+</td><td colspan="1" rowspan="1"><p>Soma e incremento (pós)</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>int b = a++; //pós incremento, b vale 2</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>++</p>
+</td><td colspan="1" rowspan="1"><p>Soma e incremento (pré)</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>int b = ++a; // pré incremento, b vale 3</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>--</p>
+</td><td colspan="1" rowspan="1"><p>Subtração e decremento (pós)</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>int b = a--; //pós decremento, b vale 2</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>--</p>
+</td><td colspan="1" rowspan="1"><p>Subtração e decremento(pré)</p>
+</td><td colspan="1" rowspan="1"><p>int a = 2;</p>
+<p>int b = --a; //pré decremento, b vale 1</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Operadores relacionais" duration="2">
+        <p>Os <strong>operadores relacionais</strong> de Dart são os seguintes.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Operador</p>
+</td><td colspan="1" rowspan="1"><p>Observação</p>
+</td><td colspan="1" rowspan="1"><p>Exemplo</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>==</p>
+</td><td colspan="1" rowspan="1"><p>comparação por igualdade</p>
+</td><td colspan="1" rowspan="1"><p>2 == 2 //true</p>
+<p>2 == 3 // false</p>
+<p>&#34;abc&#34; == &#34;abc&#34; // true (sim, strings são comparadas assim)</p>
+<p>&#34;abc&#34; == &#34;ab&#34; // false</p>
+<p>2 == 2.0 // true</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>!=</p>
+</td><td colspan="1" rowspan="1"><p>comparação por diferença</p>
+</td><td colspan="1" rowspan="1"><p>2 != 2 // false</p>
+<p>2 != 3 // true</p>
+<p>&#34;abc&#34; != &#34;abc&#34; // false</p>
+<p>&#34;abc&#34; != &#34;ab&#34; //true</p>
+<p>2 != 2.0 // false</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>&lt;</p>
+</td><td colspan="1" rowspan="1"><p>menor</p>
+</td><td colspan="1" rowspan="1"><p>2 &lt; 2 // false</p>
+<p>2 &lt; 3 // true</p>
+<p>3 &lt; 2 // false</p>
+<p>2 &lt; 2.0 // false</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>&gt;</p>
+</td><td colspan="1" rowspan="1"><p>maior</p>
+</td><td colspan="1" rowspan="1"><p>2 &gt; 2 // false</p>
+<p>2 &gt; 3 // false</p>
+<p>3 &gt; 2 // true</p>
+<p>2 &gt; 2.0 // false</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>&lt;=</p>
+</td><td colspan="1" rowspan="1"><p>menor ou igual</p>
+</td><td colspan="1" rowspan="1"><p>2 &lt;= 2 // true</p>
+<p>2 &lt;= 3 // true</p>
+<p>3 &lt;= 2 // false</p>
+<p>2 &lt;= 2.0 // true</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>&gt;=</p>
+</td><td colspan="1" rowspan="1"><p>maior ou igual</p>
+</td><td colspan="1" rowspan="1"><p>2 &gt;= 2 // true</p>
+<p>2 &gt;= 3 // false</p>
+<p>3 &gt;= 2 // true</p>
+<p>2 &gt;= 2.0 // true</p>
+</td></tr>
+</table>
+<aside class="warning"><p><strong>Atenção.</strong> Strings não podem ser comparadas utilizando-se os operadores <strong>&lt;</strong>, <strong>&gt;</strong>, <strong>&lt;=</strong> e <strong>&gt;=</strong>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Operadores lógicos" duration="2">
+        <p>Os <strong>operadores lógicos</strong> de Dart são os seguintes.</p>
+<p><strong>Ou lógico</strong>: ||</p>
+<p><strong>E lógico</strong>: &amp;&amp;</p>
+<p><strong>Negação</strong>: !</p>
+<p>Eles funcionam como esperado, de acordo com a seguinte tabela-verdade.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p>A</p>
+</td><td colspan="1" rowspan="1"><p>B</p>
+</td><td colspan="1" rowspan="1"><p>!A</p>
+</td><td colspan="1" rowspan="1"><p>!B</p>
+</td><td colspan="1" rowspan="1"><p>A || B</p>
+</td><td colspan="1" rowspan="1"><p>A &amp;&amp; B</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>V</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td><td colspan="1" rowspan="1"><p>F</p>
+</td></tr>
+</table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Operador ternário" duration="2">
+        <p>Dart possui um <strong>operador ternário</strong> que opera como uma espécie de if/else de uma linha só. Veja um exemplo.</p>
+<pre><code>void main(){
+  bool vaiChover = true;  
+  String levarGuardaChuva = vaiChover ? &#34;SIM!&#34; : &#34;NÃO&#34;;  
+  print (levarGuardaChuva);
+  
+  int idade = 17;  
+  String podeDirigir = idade &gt;= 18 ? &#34;SIM!&#34; : &#34;NÃO&#34;;
+  print(podeDirigir);
+
+}</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Sistema de tipos gradual e inferência de tipos" duration="5">
+        <p>O sistema de tipos de Dart é gradual. Uma espécie de mistura de tipagem estática e dinâmica. </p>
+<p>Uma <strong>linguagem estaticamente tipada</strong> é aquela cuja verificação de tipo é feita pelo compilador. Exemplos de linguagens estaticamente tipadas são <strong>Java</strong>, <strong>Kotlin</strong>, <strong>C++</strong> e <strong>Scala</strong>.</p>
+<p>Uma <strong>linguagem dinamicamente tipada </strong>é aquela cuja verificação de tipo é feita em tempo de execução. Exemplos de linguagens dinamicamente tipadas são <strong>Javascript </strong>e <strong>Python</strong>.</p>
+<p>Uma <strong>linguagem com sistema de tipos gradual possui tipagem estática e dinâmica</strong>. Exemplos de linguagens assim são <strong>Typescript</strong>, <strong>C# </strong>e <strong>Dart</strong>.</p>
+<p>Veja os exemplos a seguir. </p>
+<pre><code>void main() { 
+  //variável estaticamente tipada (int)
+  //em tempo de compilação e em tempo de execução é int
+  int a = 2;
+  print(a.runtimeType); //int
+  //erro em tempo de compilação, tentativa de chamar um método que a classe int não possui
+  //a.indexOf(&#34;b&#34;);
+  //erro, atribuição de string a variável de tipo int
+  //a = &#34;abc&#34;;
+  
+  //variável dinamicamente tipada 
+  //em tempo de compilação não há checagem
+  //em tempo de execução o tipo é int
+  dynamic b = 2;
+  //erro somente em tempo de execução
+  //b.indexOf(&#34;2&#34;);
+  print(b.runtimeType); // int
+  b = &#34;abc&#34;;
+  print(b.runtimeType); // String  
+}</code></pre>
+<p>Dart também inclui <strong>inferência de tipos</strong>. Ela entra em cena quando utilizamos a palavra <strong>var</strong>. Veja.</p>
+<pre><code>void main(){
+  //é claro que &#34;João&#34; é uma String, não precisamos dizer isso explicitamente
+  //String nome = &#34;João&#34;;
+  var nome = &#34;João&#34;;
+  print(nome.runtimeType);
+  //observe que uma vez que o tipo tenha sido inferido, não vale tentar mudar
+  //erro, nome é String
+  //nome = 2;
+  
+  //o mesmo vale para idade, que é int
+  //int idade = 25;
+  var idade = 25;
+  print(idade.runtimeType);
+  
+  //e assim por diante
+  var vaiChover = true;
+  print (vaiChover.runtimeType);
+  var salario = 2532.2;
+  print (salario.runtimeType);
+}</code></pre>
+<p>Também podemos declarar <strong>constantes</strong>. Isso também envolve a inferência de tipos e mais: uma vez que a variável tenha sido inicializada, o ambiente Dart não permitirá que façamos nova atribuição. Aqui vamos utilizar a palavra chave <strong>final</strong>.</p>
+<pre><code>void main(){
+  final nome = &#34;João&#34;;
+  print(nome);
+  final idade = 17;
+  print(idade);
+  //String
+  print(nome.runtimeType);
+  //int
+  print(idade.runtimeType);
+  //erro, nome é constante
+  //nome = &#34;Pedro&#34;;
+  //erro, idade também é constante
+  //idade++;
+  
+  //observe que podemos falar o tipo explicitamente, embora não seja necessário
+  final String endereco = &#34;Rua J&#34;;
+  print (endereco);
+  //String
+  print(endereco.runtimeType);
+  
+  //observe que não necessariamente a inicializamos no momento em que é declarada
+  final peso;
+  //mas é um erro tentar usar
+  //erro, peso não foi inicializada
+  //print(peso);
+  //erro, se não foi inicializada também não tem tipo
+  //print(peso.runtimeType);
+}</code></pre>
+<p>Também podemos criar constantes com a palavra <strong>const</strong>. São constantes criadas em tempo de compilação e o ambiente Dart é capaz de gerar código otimizado quando as utilizamos. Mas quando utilizá-las? Utilizamos constantes com <strong>const</strong> quando sabemos seu valor no momento em que são declaradas e, além disso, esse valor é literal, conhecido em tempo de compilação.</p>
+<p>Veja.</p>
+<pre><code>void main(){
+   //tudo bem, inicializado com valor literal, conhecido em tempo de compilação
+  const nome = &#34;Ana&#34;;
+  //também pode falar o tipo explicitamente, embora seja desnecessário
+  const String sobrenome = &#34;Silva&#34;;
+  
+  //também vale com outros tipos
+  const int idade = 18;
+  const bool vaiChover = true;
+  const deMaior = false;
+  
+  //também vale com interpolação de string
+  const nomeCompletoInterpolacao = &#39;$nome $sobrenome&#39;;
+  //e com concatenação
+  const nomeCompletoConcatenacao = nome + &#39; &#39; + sobrenome;
+  
+  //String String int bool bool String String
+  print(&#39;${nome.runtimeType} ${sobrenome.runtimeType} ${idade.runtimeType} ${vaiChover.runtimeType} ${deMaior.runtimeType}  ${nomeCompletoInterpolacao.runtimeType} ${nomeCompletoConcatenacao.runtimeType}&#39;);
+  
+  //erro, não está sendo inicializada
+  //const outroNome;
+  
+  //erro, o valor é conhecido somente em tempo de execução
+  //o compilador não é responsável por chamar o método toUpperCase
+  //const maiusculas = nome.toUpperCase();
+  
+  //observe que assim, tudo bem
+  //o compilador é capaz de fazer continhas
+  const soma = 2 + 2;
+  print(soma);
+  print(soma.runtimeType);
+  
+  //tudo bem também
+  const n1 = 2, n2 = 3;
+  const n3 = n1 + n2;
+  print(&#39;$n1 + $n2 = $n3&#39;);
+  
+  var n4 = 2;
+  //erro, var somente é conhecido em tempo de execução, o compilador não pode resolver
+  //const n5 = n4 + 2;
+  
+  final n6 = 5;
+  //com final também não dá, pois a inicialização em tempo de compilação não é obrigatória
+  //const n7 = n6 + 2;
+}</code></pre>
+<aside class="special"><p><strong>Nota</strong>. Como decidir entre <strong>var, final e const</strong>? Observe que var resolve o problema de maneira generalizada. Tudo aquilo que fazemos com final e const podemos fazer com var. Então por que não apenas utilizar var? Pelo <strong>princípio do menor privilégio</strong> e pela<strong> possibilidade de otimização de código</strong>. Resumindo, use:</p>
+<p>- <strong>var</strong>: se for necessário alterar o valor ao longo do tempo. Ou seja, se existirem funcionalidades que requeiram este privilégio.</p>
+<p>-<strong> final</strong>: se após a primeira atribuição o valor não puder mais ser alterado, mas ele não for conhecido no momento em que a constante for declarada ou não for literal.</p>
+<p><strong>- const</strong>: se após a primeira atribuição o valor não puder ser mais alterado e, além disso, ele já for conhecido no momento em que a constante for declarada e for literal, conhecido em tempo de compilação.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Estruturas de seleção" duration="6">
+        <p>Dart possui as seguintes estruturas de seleção.</p>
+<p>- <strong>If, if/else, if/else encadeado, if/else aninhado</strong></p>
+<p>- <strong>Switch/case (switch statements, switch expressions)</strong></p>
+<pre><code>void main(){
+  
+  //if sem else (lembre-se do efeito das chaves)
+  const idade = 19;
+  if (idade &gt; 18)
+    print(&#39;Pode dirigir&#39;); //dentro do if
+  print(&#39;Até logo&#39;);//fora do if
+  
+  if (idade &gt; 18){
+    //dentro do if
+    print (&#39;Pode dirigir&#39;);
+  }
+  //fora do if
+  print(&#34;Até logo&#34;);
+  
+  //if/else
+  const nome = &#34;Ana&#34;;
+  if (nome.startsWith(&#39;A&#39;))
+    print(&#39;O nome começa com A&#39;);
+  else
+    print(&#39;O nome não começa com A&#39;);
+  
+  //também pode usar chaves (só no if, só no else ou em ambos, você escolhe)
+  if (nome.startsWith(&#39;A&#39;)){
+    print(&#39;O nome começa com A&#39;);
+  }
+  else{
+    print(&#39;O nome não começa com A&#39;);
+  }
+  
+  //if/else encadeado
+  const nota = 10;
+  if (nota &gt;= 9)
+    print(&#34;A&#34;);
+  else if (nota &gt;= 7)
+    print(&#34;B&#34;);
+  else if (nota &gt;= 5)
+    print(&#34;C&#34;);
+  else
+    print(&#34;R&#34;);
+  
+  //if/else aninhado
+  const numero = 18;
+  if (numero % 2 == 0){
+    print(&#34;É par&#34;);
+    if (numero % 4 == 0)
+      print(&#34;Divisível por 4&#34;);
+    else
+      print(&#34;Não é divisível por 4&#34;);
+  }
+  else{
+    print(&#34;É ímpar&#34;);
+    if (numero % 3 == 0){
+      print(&#34;Divisível por 3 também&#34;);
+    }
+    else{
+      print(&#34;Não é divisível por três&#34;);
+    }
+  } 
+}</code></pre>
+<p> A linguagem Dart também possui a clássica estrutura <strong>switch/case</strong>. Veja.</p>
+<pre><code>void main(){
+  const nota = 9;
+  switch (nota){
+    case 10:
+      print(&#39;A&#39;);
+      break;
+    case 9:
+      print(&#39;A&#39;);
+      break;
+    case 8:
+      print(&#39;B&#39;);
+      break;
+    case 7:
+      print(&#39;C&#39;);
+      break;
+    case 6:
+      print(&#39;D&#39;);
+      break;
+    case 5:
+      print(&#39;E&#39;);
+      break;
+    default:
+      print(&#39;R&#39;);
+      break;
+  }
+
+  //observe que o Dart não tem suporte à execução fall-through para cláusulas case não vazias (aquela em que não especificamos break e múltiplos cases são executados)
+  //assim, as instruções break do primeiro exemplo são redundantes e desnecessárias
+  //isso vale a partir da versão 3.0.0 do Dart
+  switch (nota){
+    case 10:
+      print(&#39;A&#39;);
+    case 9:
+      print(&#39;A&#39;);
+    case 8:
+      print(&#39;B&#39;);
+    case 7:
+      print(&#39;C&#39;);
+    case 6:
+      print(&#39;D&#39;);
+    case 5:
+      print(&#39;E&#39;);
+    default:
+      print(&#39;R&#39;);
+  }
+  
+  //fall-through para cláusulas case vazias
+    switch (nota){
+    case 10:
+    case 9:
+      print(&#39;A&#39;);
+    case 8:
+      print(&#39;B&#39;);
+    case 7:
+      print(&#39;C&#39;);
+    case 6:
+      print(&#39;D&#39;);
+    case 5:
+      print(&#39;E&#39;);
+    default:
+      print(&#39;R&#39;);
+  }
+
+  //veja outro exemplo que permite que dois valores sejam tratados no mesmo case
+  switch(nota){
+    case 10 || 9:
+      print (&#39;A&#39;);
+      case 8:
+      print(&#39;B&#39;);
+    case 7:
+      print(&#39;C&#39;);
+    case 6:
+      print(&#39;D&#39;);
+    case 5:
+      print(&#39;E&#39;);
+    default:
+      print(&#39;R&#39;);
+  }
+  
+  //com strings
+  const vaiChover = &#34;Sim&#34;;
+  switch(vaiChover){
+    case &#39;Sim&#39;:
+      print(&#34;Leve guarda chuva&#34;);
+    default:
+      print(&#34;Não leve guarda chuva&#34;);
+  }
+  
+  const mediaFinal = 5;
+  var conceito = switch(mediaFinal){
+      10 || 9 =&gt; &#39;A&#39;,
+      8 =&gt; &#39;B&#39;,
+      7 =&gt; &#39;C&#39;,
+      6 =&gt; &#39;D&#39;,
+      5 =&gt; &#39;E&#39;,
+      _ =&gt; &#39;R&#39; //_faz o papel do default
+  };
+  print (conceito);
+}
+</code></pre>
+<aside class="special"><p><strong>Nota</strong>. Há outras formas de se utilizar switch/case em Dart. Veja mais em <a href="https://dart.dev/language/branches" target="_blank">https://dart.dev/language/branches</a>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Exercícios" duration="90">
+        <p>1. Calcule a área de um círculo com um raio de 5. (Use a fórmula da área do círculo: πr²).</p>
+<p>2. Encontre as raízes de uma equação quadrática com a = 1, b = -3 e c = 2. (Use a fórmula do discriminante: x = [-b ± sqrt(b² - 4ac)] / 2a). Nota: pesquise sobre a biblioteca math na documentação oficial e descubra como importá-la.</p>
+<p>3. Calcule o volume de uma esfera com raio 4. (Use a fórmula do volume de uma esfera: 4/3πr³)</p>
+<p>4. Determine o valor final obtido pela seguinte expressão numérica: 2 + 3 * 4 - (2 * 3) + 2^3.</p>
+<p>5. Converta uma temperatura de 100 graus Fahrenheit para Celsius. (Use a fórmula: C = (F - 32) * 5/9).</p>
+<p>6. Converta uma temperatura de 36 graus Celsius para Fahrenheit. (Use a fórmula: F = C * 9/5 + 32)</p>
+<p>7. Converta uma distância de 100 quilômetros para milhas. (Use a fórmula: M = Km * 0.62137).</p>
+<p>8. Converta uma distância de 60 milhas para quilômetros. (Use a fórmula: Km = M * 1.60934)</p>
+<p>9. Converta 100 libras para quilogramas. (Use a fórmula: Kg = Lb * 0.453592).</p>
+<p>10. Converta 72 polegadas em metros. (1 polegada = 0.0254 metro).</p>
+<p>11. Converta 3 litros em galões americanos. (1 litro = 0.264172 galão americano).</p>
+<p>12. Converta 48 onças para gramas. (1 onça = 28.3495 gramas).</p>
+<p>13. Converta 5 metros quadrados para pés quadrados. (1 metro quadrado = 10.7639 pés quadrados).</p>
+<p>14. Converta 120 milhas por hora para metros por segundo. (1 milha por hora = 0.44704 metros por segundo).</p>
+<p>15. Você tem um restaurante que funciona das 8h às 20h. Se um cliente chegar fora desse horário, ele deve ser informado de que o restaurante está fechado. Além disso, se o cliente vier entre as 14h e as 16h, ele deve ser informado de que é a hora do almoço.</p>
+<p>16. Você é um bibliotecário e precisa verificar se um livro pode ser emprestado. Se o livro estiver disponível e não for um dos mais procurados, ele pode ser emprestado por 14 dias. Se for um dos mais procurados, só pode ser emprestado por 7 dias. Se o livro não estiver disponível, ele não pode ser emprestado.</p>
+<p>17. Você é um consultor de viagens e precisa informar aos clientes sobre o clima de seu destino de viagem. Se o destino for tropical, o clima será quente. Se for no norte, será frio. Se for no deserto, será quente durante o dia e frio à noite. Se for na montanha, será frio e possivelmente com neve.</p>
+<p>18. Você precisa calcular o IMC de uma pessoa e classificá-la como &#34;abaixo do peso&#34;, &#34;normal&#34;, &#34;sobrepeso&#34; ou &#34;obesidade&#34;, com base nos resultados.</p>
+<p>19. Você está analisando os dados de uma postagem nas redes sociais. Se a postagem tiver mais de 100 curtidas e mais de 50 compartilhamentos, ela será considerada &#34;popular&#34;. Se tiver menos de 10 curtidas e menos de 5 compartilhamentos, será considerada &#34;não popular&#34;. Todas as outras postagens serão consideradas &#34;médias&#34;.</p>
+<p>20. Você está planejando um evento e precisa determinar a melhor data. Se a data proposta for durante a semana de trabalho e não houver outro evento programado para o mesmo dia, ela será considerada &#34;ótima&#34;. Se for no fim de semana ou houver outro evento no mesmo dia, será considerada &#34;ruim&#34;.</p>
+<p>21. Você é um analista de ações e precisa aconselhar seus clientes sobre quando comprar ou vender ações. Se a ação estiver em alta e a empresa tiver bons lucros, é hora de vender. Se a ação estiver em baixa e a empresa tiver prejuízo, é hora de comprar. Em todos os outros cenários, é melhor esperar.</p>
+<p>22. Você está jogando um jogo de estratégia e precisa determinar a melhor ação a tomar. Se o inimigo estiver atacando e suas defesas estiverem baixas, é melhor fortalecer suas defesas. Se o inimigo estiver atacando e suas defesas estiverem fortes, é melhor contra-atacar. Se o inimigo não estiver atacando, é melhor focar na coleta de recursos.</p>
+<p>23. Você é um meteorologista e precisa prever o tempo para amanhã. Se a pressão do ar estiver caindo e houver umidade no ar, é provável que chova. Se a pressão do ar estiver subindo e o ar estiver seco, é provável que esteja ensolarado. Em todos os outros cenários, o tempo será parcialmente nublado.</p>
+<p>24. Você é um detetive e precisa determinar se um suspeito é culpado ou inocente. Se o suspeito tiver um álibi sólido, ele é inocente. Se o suspeito não tiver um álibi e houver evidências físicas que o liguem ao crime, ele é culpado. Em todos os outros casos, mais investigação é necessária.</p>
+<p>25. Dados dia e mês de nascimento, determine o signo da pessoa usando switch/case.</p>
+<p>26. Dado um alimento predefinido, seu programa deve ser capaz de exibir a quantidade de calorias desse alimento. Pesquise 5 alimentos na Internet.</p>
+<p>27. O programa deve simular uma rodada de pedra, papel e tesoura. As escolhas do jogador e do computador podem ser predefinidas.</p>
+<p>Resolva os seguintes exercícios do Beecrowd. Os valores &#34;lidos&#34; podem ser fixos no programa. Ou se desejar, pesquise sobre o pacote dart:io. Observe que o dartpad não tem suporte a este pacote.</p>
+<p><a href="https://www.beecrowd.com.br/judge/pt/problems/view/1008" target="_blank">https://www.beecrowd.com.br/judge/pt/problems/view/1008</a></p>
+<p><a href="https://www.beecrowd.com.br/judge/pt/problems/view/1019" target="_blank">https://www.beecrowd.com.br/judge/pt/problems/view/1019</a></p>
+<p><a href="https://www.beecrowd.com.br/judge/pt/problems/view/1018" target="_blank">https://www.beecrowd.com.br/judge/pt/problems/view/1018</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Parabéns!" duration="0">
+        <p>Parabéns! Você acaba de aprender o básico sobre a linguagem Dart.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Referências" duration="0">
+        <ul>
+<li><a href="https://flutter.dev/" target="_blank">Flutter</a> Acesso em julho de 2023</li>
+<li><a href="https://dart.dev/" target="_blank">Dart</a> Acesso em julho de 2023</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

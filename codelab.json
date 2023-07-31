@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-07-31T08:05:12Z",
+  "id": "codelab-dart-introducao",
+  "duration": 124,
+  "title": "Dart - Introdução",
+  "authors": "Rodrigo Bossini",
+  "summary": "Neste codelab, você aprenderá aspectos elementares sobre a linguagem Dart",
+  "source": "1KMvz6Kje0A12LssydbUTU5W0kByl5rr9ZVAJXumc_bo",
+  "theme": "dart",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "dart"
+  ],
+  "tags": [
+    "mobile"
+  ],
+  "feedback": "https://github.com/professorbossini/codelab-dart-introducao/issues",
+  "url": "codelab-dart-introducao"
+}
